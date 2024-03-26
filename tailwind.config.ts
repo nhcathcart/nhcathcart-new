@@ -8,10 +8,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        "background": "#253247",
+        "background-hover": "#39537b",
+        "background-dark": "#1c2a3f",
+        "text": "#e4dbd8",
+      },
+      fontFamily: {
+        roboto : ['var(--font-roboto)'],
+      },
+      keyframes: {
+        fadeout: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+      },
+      animation: {
+        fadeout: 'fadeout 2.2s forwards',
       },
     },
   },
