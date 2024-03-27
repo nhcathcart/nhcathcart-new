@@ -15,7 +15,7 @@ export function Logo() {
         strokeDashoffset="1000"
         initial={{ pathLength: 0, pathSpacing: 1 }}
         animate={{ pathLength: 1, pathSpacing: 1 }}
-        transition={{ duration: 10 }}
+        transition={{ duration: 20 }}
       />
     </motion.svg>
   );

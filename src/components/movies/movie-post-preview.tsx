@@ -6,20 +6,18 @@ import { POST_QUERY } from "@/sanity/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import { QueryParams, SanityDocument } from "next-sanity";
 
-import Post from "@/src/components/post";
+import Post from "@/src/components/movies/movie-post";
 
 export default function PostPreview({
   initial,
-  params
+  params,
 }: {
   initial: QueryResponseInitial<SanityDocument>;
-  params: QueryParams
+  params: QueryParams;
 }) {
-  const { data } = useQuery<SanityDocument | null>(
-    POST_QUERY,
-    params,
-    { initial }
-  );
+  const { data } = useQuery<SanityDocument | null>(POST_QUERY, params, {
+    initial,
+  });
 
   return data ? (
     <Post post={data} />

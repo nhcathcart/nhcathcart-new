@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="en" className={`${roboto.variable} h-full w-full`}>
       <body className="bg-background text-text font-oswald h-full w-full">
         <Navbar />
-        <div className="mt-[80px] h-full w-full">{children}</div>
+        <div className="pt-[80px] h-full w-full">
+          {children}
+        </div>
         {draftMode().isEnabled && <LiveVisualEditing />}
       </body>
     </html>

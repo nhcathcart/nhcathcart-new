@@ -19,7 +19,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className=" fixed top-0 z-30 h-[80px] w-full flex items-center justify-between bg-background px-4 md:px-8">
+    <nav className=" fixed top-0 z-30 h-[80px] w-full flex items-center justify-between bg-background bg-opacity-90 px-4 md:px-8">
       <a href="/" className="">
         <h1 className="text-3xl font-[700]">nhcathcart</h1>
       </a>

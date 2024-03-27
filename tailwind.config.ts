@@ -24,7 +24,7 @@ const config: Config = {
         },
       },
       animation: {
-        fadeout: 'fadeout 2.2s forwards',
+        fadeout: 'fadeout 3s forwards',
       },
     },
   },
