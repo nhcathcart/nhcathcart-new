@@ -11,16 +11,14 @@ import CodeBlock from "@/src/components/blog/code-block";
 const builder = imageUrlBuilder({ projectId, dataset });
 
 export default function Posts({ posts }: { posts: SanityDocument[] }) {
-  console.log(posts[0]);
   return (
     <div className="mx-auto max-w-screen-xl px-6 pt-4 pb-12 lg:px-8">
       <div className="mx-auto max-w-2xl lg:max-w-4xl">
         <h2 className="text-4xl font-bold tracking-tight text-text sm:text-5xl">
-          Movies
+          Tech! Fun!
         </h2>
         <p className="mt-2 text-lg leading-8 text-text">
-          Nicky C&apos;s takes on movies. Old and new. Streaming and in
-          theaters.
+          Musing on tech thats new to me, slick in some way, or just fun to play with.
         </p>
         <div className="mt-8 space-y-20 lg:mt-12 lg:space-y-20">
           {posts.map((post) => (
@@ -54,7 +52,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                     })}
                   </time>
                   <div className="flex gap-2">
-                    {post.categories.map((item: any) => {
+                    {post?.categories?.map((item: any) => {
                       return (
                         <p
                           key={item._id}

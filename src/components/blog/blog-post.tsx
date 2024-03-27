@@ -6,7 +6,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { SanityDocument } from "next-sanity";
 
 import { dataset, projectId } from "@/sanity/env";
-import CodeBlock from "../blog/code-block";
+import CodeBlock from "./code-block";
 
 const builder = imageUrlBuilder({ projectId, dataset });
 

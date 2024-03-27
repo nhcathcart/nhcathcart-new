@@ -68,8 +68,15 @@ export default defineType({
           name: 'alt',
           type: 'string',
           title: 'Alternative Text',
-        }
+        },
       ]
     }),
+    defineArrayMember({
+      type: 'code',
+      name: 'code',
+      title: 'Code Block'
+
+    }),
+    
   ],
 })

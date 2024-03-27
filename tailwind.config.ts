@@ -13,6 +13,7 @@ const config: Config = {
         "background-hover": "#39537b",
         "background-dark": "#1c2a3f",
         "text": "#e4dbd8",
+        "accent": "#FFB3D9"
       },
       fontFamily: {
         roboto : ['var(--font-roboto)'],
@@ -22,9 +23,14 @@ const config: Config = {
           '0%': { opacity: '1' },
           '100%': { opacity: '0' },
         },
+        fadein: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        }
       },
       animation: {
-        fadeout: 'fadeout 3s forwards',
+        fadeout: 'fadeout 1.5s forwards ease-in',
+        fadein: 'fadein 1.5s forwards ease-in',
       },
     },
   },
