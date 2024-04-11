@@ -1,6 +1,4 @@
-import { draftMode } from "next/headers";
 import "./globals.css";
-import LiveVisualEditing from "../components/live-visual-editing";
 import Navbar from "../components/navbar";
 import { Roboto_Flex } from "next/font/google";
 
@@ -21,7 +19,6 @@ export default function RootLayout({
         <div className="pt-[80px] h-full w-full relative">
           {children}
         </div>
-        {draftMode().isEnabled && <LiveVisualEditing />}
       </body>
     </html>
   );

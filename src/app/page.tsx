@@ -1,27 +1,9 @@
-// ./app/page.tsx
-
-import { SanityDocument } from "next-sanity";
-import { draftMode } from "next/headers";
-
-import Posts from "@/src/components/movies/movie-posts";
-import PostsPreview from "@/src/components/movies/movie-posts-preview";
-import { loadQuery } from "@/sanity/lib/store";
-import { POSTS_QUERY, WElCOME_QUERY } from "@/sanity/lib/queries";
 import { Logo } from "../components/loader/logo";
-import Image from "next/image";
-import { PortableText } from "@portabletext/react";
-import { navOffset } from "./utils/constants";
+
 import Link from "next/link";
 
 export default async function Page() {
-  const initial: any = await loadQuery<SanityDocument[]>(
-    WElCOME_QUERY,
-    {},
-    {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
-    }
-  );
-  console.log(initial);
+  
   return (
     <>
       <div className="flex h-full w-full items-center justify-center px-6">

@@ -1,22 +1,20 @@
-import { BLOG_POSTS_QUERY, POSTS_QUERY } from "@/sanity/lib/queries";
-import { loadQuery } from "@/sanity/lib/store";
+import { client } from "@/sanity/lib/client";
+import { BLOG_POSTS_QUERY } from "@/sanity/lib/queries";
 import Posts from "@/src/components/blog/blog-posts";
-import PostsPreview from "@/src/components/blog/blog-posts-preview";
 import { SanityDocument } from "next-sanity";
-import { draftMode } from "next/headers";
+
 
 export default async function Page() {
-  const initial = await loadQuery<SanityDocument[]>(
+  const data = await client.fetch<SanityDocument[]>(
     BLOG_POSTS_QUERY,
     {},
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
-    }
-  );
-  console.log("initial", initial);
-  return draftMode().isEnabled ? (
-    <PostsPreview initial={initial} />
-  ) : (
-    <Posts posts={initial.data} />
-  );
+      // You can set any of the `cache` and `next` options as you would on a standard `fetch` call
+      cache: 'force-cache',
+      next: {tags: ['blog-posts']},
+    },
+  )
+  return (
+    <Posts posts={data} />
+  )
 }

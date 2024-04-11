@@ -12,7 +12,6 @@ const builder = imageUrlBuilder({ projectId, dataset });
 
 export default function Post({ post }: { post: SanityDocument }) {
   const { title, mainImage, body } = post;
-  console.log("body: ", body);
   return (
     <main className="relative container flex flex-col prose prose-invert prose-lg gap-4 mx-auto">
       {mainImage ? (

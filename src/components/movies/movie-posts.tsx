@@ -11,7 +11,7 @@ import CodeBlock from "@/src/components/blog/code-block";
 const builder = imageUrlBuilder({ projectId, dataset });
 
 export default function Posts({ posts }: { posts: SanityDocument[] }) {
-  console.log(posts[0]);
+
   return (
     <div className="mx-auto max-w-screen-xl px-6 pt-4 pb-12 lg:px-8">
       <div className="mx-auto max-w-2xl lg:max-w-4xl">

@@ -1,16 +1,10 @@
-// ./app/[slug]/page.tsx
-
 import { QueryParams, SanityDocument } from "next-sanity";
-import { draftMode } from "next/headers";
-
-import { loadQuery } from "@/sanity/lib/store";
-import { BLOG_POST_QUERY, POSTS_QUERY, POST_QUERY } from "@/sanity/lib/queries";
+import { MOVIE_POSTS_QUERY, MOVIE_POST_QUERY } from "@/sanity/lib/queries";
 import Post from "@/src/components/movies/movie-post";
-import PostPreview from "@/src/components/movies/movie-post-preview";
 import { client } from "@/sanity/lib/client";
 
 export async function generateStaticParams() {
-  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY);
+  const posts = await client.fetch<SanityDocument[]>(MOVIE_POSTS_QUERY);
 
   return posts.map((post) => ({
     slug: post.slug.current,
@@ -18,15 +12,9 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: QueryParams }) {
-  const initial = await loadQuery<SanityDocument>(POST_QUERY, params, {
-    // Because of Next.js, RSC and Dynamic Routes this currently
-    // cannot be set on the loadQuery function at the "top level"
-    perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+  const data = await client.fetch<SanityDocument>(MOVIE_POST_QUERY, params, {
+    cache: "force-cache",
+    next: { tags: ["movie-posts"] },
   });
-
-  return draftMode().isEnabled ? (
-    <PostPreview initial={initial} params={params} />
-  ) : (
-    <Post post={initial.data} />
-  );
+  return <Post post={data} />;
 }
