@@ -42,7 +42,7 @@ export default function Navbar() {
             <Link
               href={link.href}
               key={`navLink-${link.linkText}`}
-              className="hidden rounded-md hover:bg-background-hover p-3 font-sans text-primary md:flex active:scale-95"
+              className="hidden rounded-md hover:bg-background-hover p-3 text-primary md:flex active:scale-95"
             >
               {link.linkText}
             </Link>
