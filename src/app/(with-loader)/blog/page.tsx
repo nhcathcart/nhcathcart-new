@@ -11,7 +11,7 @@ export default async function Page() {
     {
       // You can set any of the `cache` and `next` options as you would on a standard `fetch` call
       cache: 'force-cache',
-      next: {tags: ['blog-posts']},
+      next: {tags: ['blogPost']},
     },
   )
   return (

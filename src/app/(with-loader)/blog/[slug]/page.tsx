@@ -14,7 +14,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }: { params: QueryParams }) {
   const data = await client.fetch<SanityDocument>(BLOG_POST_QUERY, params, {
     cache: "force-cache",
-    next: { tags: ["blog-posts "] },
+    next: { tags: ["blogPost "] },
   });
   return <Post post={data} />;
 }

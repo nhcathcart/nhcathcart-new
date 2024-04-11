@@ -7,7 +7,7 @@ import { SanityDocument } from "next-sanity";
 export default async function Page() {
   const data = await client.fetch<SanityDocument[]>(MOVIE_POSTS_QUERY, {}, {
     cache: 'force-cache',
-    next: {tags: ['movie-posts']},
+    next: {tags: ['moviePost']},
   })
   return (
     <Posts posts={data} />
