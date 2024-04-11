@@ -1,13 +1,10 @@
-import { draftMode } from "next/headers";
 import "./globals.css";
-import LiveVisualEditing from "../components/live-visual-editing";
 import Navbar from "../components/navbar";
-import { Roboto } from "next/font/google";
+import { Roboto_Flex } from "next/font/google";
 
-const roboto = Roboto({
-  weight: ["300", "400", "700"],
+const roboto = Roboto_Flex({
   subsets: ["latin"],
-  variable: "--font-roboto",
+  variable: "--font-oswald",
 });
 
 export default function RootLayout({
@@ -22,7 +19,6 @@ export default function RootLayout({
         <div className="pt-[80px] h-full w-full relative">
           {children}
         </div>
-        {draftMode().isEnabled && <LiveVisualEditing />}
       </body>
     </html>
   );

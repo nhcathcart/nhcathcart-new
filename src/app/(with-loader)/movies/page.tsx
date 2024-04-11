@@ -1,22 +1,15 @@
-import { POSTS_QUERY } from "@/sanity/lib/queries";
-import { loadQuery } from "@/sanity/lib/store";
+import { client } from "@/sanity/lib/client";
+import { MOVIE_POSTS_QUERY } from "@/sanity/lib/queries";
 import Posts from "@/src/components/movies/movie-posts";
-import PostsPreview from "@/src/components/movies/movie-posts-preview";
 import { SanityDocument } from "next-sanity";
-import { draftMode } from "next/headers";
+
 
 export default async function Page() {
-  const initial = await loadQuery<SanityDocument[]>(
-    POSTS_QUERY,
-    {},
-    {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
-    }
-  );
-
-  return draftMode().isEnabled ? (
-    <PostsPreview initial={initial} />
-  ) : (
-    <Posts posts={initial.data} />
-  );
+  const data = await client.fetch<SanityDocument[]>(MOVIE_POSTS_QUERY, {}, {
+    cache: 'force-cache',
+    next: {tags: ['movie-posts']},
+  })
+  return (
+    <Posts posts={data} />
+  )
 }

@@ -16,7 +16,7 @@ const config: Config = {
         "accent": "#FFB3D9"
       },
       fontFamily: {
-        roboto : ['var(--font-roboto)'],
+        oswald : ['var(--font-oswald)'],
       },
       keyframes: {
         fadeout: {
