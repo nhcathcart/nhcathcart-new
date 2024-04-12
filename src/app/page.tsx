@@ -3,7 +3,6 @@ import { Logo } from "../components/loader/logo";
 import Link from "next/link";
 
 export default async function Page() {
-  
   return (
     <>
       <div className="flex h-full w-full items-center justify-center px-6">

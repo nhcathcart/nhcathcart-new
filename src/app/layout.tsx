@@ -1,7 +1,15 @@
 import "./globals.css";
 import Navbar from "../components/navbar";
 import { Roboto_Flex } from "next/font/google";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: {
+    template: "%s | nhcathcart",
+    default: "nhcathcart",
+  },
+  description: "Nicholas Cathcart's personal website.",
+};
 const roboto = Roboto_Flex({
   subsets: ["latin"],
   variable: "--font-oswald",
