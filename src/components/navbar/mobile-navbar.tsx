@@ -19,6 +19,7 @@ export default function MobileMenu({ linkArray }: Props) {
           type="button"
           className="rounded-md text-white"
           onClick={() => setOpen(true)}
+          aria-label='Open mobile menu'
         >
           <Bars3Icon className="h-8 w-8" aria-hidden="true" />
         </button>
