@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'restaurantPost',
-  title: 'restaurantPost',
+  name: 'workPost',
+  title: 'workPost',
   type: 'document',
   fields: [
     defineField({
@@ -11,19 +11,14 @@ export default defineType({
       type: 'string'
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 96
-      }
+      name: 'description',
+      title: 'Description',
+      type: 'string'
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: { type: 'author' }
+      name: 'url',
+      description: 'URL to the project',
+      type: 'url'
     }),
     defineField({
       name: 'mainImage',

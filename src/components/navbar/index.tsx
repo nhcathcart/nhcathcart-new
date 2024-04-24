@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import MobileMenu from "./mobile-navbar";
+import Image from 'next/image';
+import Link from 'next/link';
+import MobileMenu from './mobile-navbar';
 
 export interface NavbarLink {
   linkText: string;
@@ -9,16 +9,16 @@ export interface NavbarLink {
 
 export default function Navbar() {
   const linkArray: NavbarLink[] = [
-    { linkText: "home", href: "/" },
-    { linkText: "blog", href: "/blog"},
-    { linkText: "movies", href: "/movies" },
-    { linkText: "restaurants", href: "/restaurants" },
-    { linkText: "playlists", href: "/playlists" },
-    { linkText: "contact", href: "/contact" },
+    { linkText: 'home', href: '/' },
+    { linkText: 'works', href: '/works' },
+    { linkText: 'blog', href: '/blog' },
+    { linkText: 'movies', href: '/movies' },
+    { linkText: 'playlists', href: '/playlists' },
+    { linkText: 'contact', href: '/contact' }
   ];
 
   return (
-    <nav className=" fixed top-0 z-30 h-[80px] w-full flex items-center justify-between bg-background bg-opacity-90 px-4 md:px-8">
+    <nav className=" fixed top-0 z-30 flex h-[80px] w-full items-center justify-between bg-background bg-opacity-90 px-4 md:px-8">
       <a href="/" className="flex items-center gap-2">
         <h1 className="text-3xl font-[700]">nhcathcart</h1>
         <svg
@@ -42,7 +42,7 @@ export default function Navbar() {
             <Link
               href={link.href}
               key={`navLink-${link.linkText}`}
-              className="hidden rounded-md hover:bg-background-hover p-3 text-primary md:flex active:scale-95"
+              className="text-primary hidden rounded-md p-3 hover:bg-background-hover active:scale-95 md:flex"
             >
               {link.linkText}
             </Link>

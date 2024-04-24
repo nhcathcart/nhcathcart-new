@@ -1,43 +1,41 @@
-import { Logo } from "../components/loader/logo";
+import { Logo } from '../components/loader/logo';
 
-import Link from "next/link";
+import Link from 'next/link';
 
 export default async function Page() {
   return (
     <>
       <div className="flex h-full w-full items-center justify-center px-6">
-        <div className=" h-full flex flex-col md:flex-row w-full max-w-screen-lg gap-24 items-center justify-center translate-y-[-30px]">
-          <div className="w-full md:w-1/2 flex flex-col gap-4 animate-fadein">
+        <div className=" flex h-full w-full max-w-screen-lg translate-y-[-30px] flex-col items-center justify-center gap-24 md:flex-row">
+          <div className="flex w-full animate-fadein flex-col gap-4 md:w-1/2">
             <p className="text-3xl font-[400]">Hi my name is</p>
             <h1 className="text-4xl font-[600]">Nicholas Cathcart.</h1>
-            <p className="text-3xl font-[400]">
-              I build stuff for the internet.
-            </p>
-            <div className="text-lg flex flex-col gap-2">
+            <p className="text-3xl font-[400]">I build stuff for the internet.</p>
+            <div className="flex flex-col gap-2 text-lg">
               <p>
-                Checkout the{" "}
-                <Link href={"/blog"} className="text-accent">
+                Checkout the{' '}
+                <Link href={'/blog'} className="text-accent">
                   blog
-                </Link>{" "}
-                for technical musings.{" "}
+                </Link>{' '}
+                for technical musings.{' '}
               </p>
               <p>
-                There are thoughts on{" "}
-                <Link href={"/movies"} className="text-accent">
+                There are thoughts on{' '}
+                <Link href={'/movies'} className="text-accent">
                   movies
-                </Link>{" "}
-                ,{" "}
-                <Link href={"/restaurants"} className="text-accent">
+                </Link>{' '}
+                ,{' '}
+                <Link href={'/restaurants'} className="text-accent">
                   food
-                </Link>{" "}
-                , and{" "}
-                <Link href={"/playlists"} className="text-accent">
+                </Link>{' '}
+                , and{' '}
+                <Link href={'/playlists'} className="text-accent">
                   music
-                </Link>{" "}
-                in the respective sections.{" "}
+                </Link>{' '}
+                in the respective sections.{' '}
               </p>
               <p>
-                For work stuff head over to{" "}
+                For work stuff head over to{' '}
                 <a
                   href="https://www.arcusdigital.io"
                   target="_blank"
@@ -48,15 +46,15 @@ export default async function Page() {
                 </a>
               </p>
               <p>
-                Reach out{" "}
-                <Link href={"/contact"} className="text-accent">
+                Reach out{' '}
+                <Link href={'/contact'} className="text-accent">
                   here
-                </Link>{" "}
+                </Link>{' '}
                 for a chat.
               </p>
             </div>
           </div>
-          <div className="z-[1000] bg-background pointer-events-none animate-fadeout md:animate-none absolute top-0 w-full h-full md:relative md:w-1/2 p-12">
+          <div className="pointer-events-none absolute top-0 z-[1000] h-full w-full animate-fadeout bg-background p-12 md:relative md:w-1/2 md:animate-none">
             <Logo />
           </div>
         </div>

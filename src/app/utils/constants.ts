@@ -1,1 +1,1 @@
-export const navOffset = "80px"
+export const navOffset = '80px';
