@@ -1,31 +1,20 @@
 // ./components/Posts.tsx
 
 import { SanityDocument } from "next-sanity";
-import Link from "next/link";
 import Image from "next/image";
 import { dataset, projectId } from "@/sanity/env";
 import imageUrlBuilder from "@sanity/image-url";
-import { PortableText } from "@portabletext/react";
-import CodeBlock from "@/src/components/blog/code-block";
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
 export default function Posts({ posts }: { posts: SanityDocument[] }) {
   return (
-    <div className="mx-auto max-w-screen-xl px-2 pt-4 pb-12 lg:px-8">
-      <div className="mx-auto max-w-2xl lg:max-w-4xl">
-        <h2 className="text-4xl font-bold tracking-tight text-text sm:text-5xl">
-          Technical Blog
-        </h2>
-        <p className="mt-6 text-lg leading-8 text-text">
-          Musing on tech thats new to me, slick in some way, or just fun to play
-          with.
-        </p>
-        <div className="divide-y divide-text border-opacity-10 lg:divide-none">
+    
+        <div className="flex flex-col">
           {posts.map((post) => (
             <article
               key={post._id}
-              className="relative isolate flex flex-col gap-8 lg:flex-row py-8 md:py-16"
+              className="relative isolate flex flex-col gap-8 lg:flex-row py-8 md:py-16 border-b border-text border-opacity-50"
             >
               <div className="relative aspect-square w-full lg:w-64 lg:shrink-0">
                 <a href={`/blog/${post.slug.current}`}>
@@ -43,21 +32,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                   />
                 </a>
               </div>
-              <div className="flex flex-col justify-center">
-                <div className="flex items-center gap-x-4 text-xs">
-                  <div className="flex gap-2">
-                    {post?.categories?.map((item: any) => {
-                      return (
-                        <p
-                          key={item._id}
-                          className="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-600"
-                        >
-                          {item.title}
-                        </p>
-                      );
-                    })}
-                  </div>
-                </div>
+              <div className="flex flex-col justify-between min-h-full">
                 <div className="group relative max-w-xl">
                   <h3 className="mt-3 text-2xl font-semibold leading-6 text-text">
                     <a href={`/blog/${post.slug.current}`}>
@@ -70,7 +45,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                     {post.description}
                   </div>
                 </div>
-                <div className="mt-1 flex pt-6">
+                <div className="mt-1 flex pt-6 border-t border-text border-opacity-30">
                   <div className="relative flex items-center gap-x-4">
                     <Image
                       src={builder
@@ -85,7 +60,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                       width={40}
                       className="h-10 w-10 rounded-full bg-gray-50"
                     />
-                    <div className="text-sm leading-6">
+                    <div className="text-sm leading-6 ">
                       <p className="font-semibold flex flex-col">
                         <a href={post.author}>
                           <span className="absolute inset-0" />
@@ -109,7 +84,6 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
             </article>
           ))}
         </div>
-      </div>
-    </div>
+     
   );
 }

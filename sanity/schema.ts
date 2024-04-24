@@ -6,6 +6,7 @@ import author from "./schemaTypes/author";
 import restaurantPosts from "./schemaTypes/restaurantPosts";
 import welcomeMessage from "./schemaTypes/welcomeMessage";
 import blogPost from "./schemaTypes/blogPost";
+import workPost from "./schemaTypes/workPost";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -16,5 +17,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     restaurantPosts,
     welcomeMessage,
     blogPost,
+    workPost,
   ],
 };
