@@ -13,12 +13,15 @@ export default async function Page() {
       next: { tags: ['blogPost'] }
     }
   );
+
+  //test test
   return (
     <>
       <Header
         title="Technical Blog"
         description="Musings on tech that is new to me, fun, or interesting in some way."
       />
+      
       <Posts posts={data} />
     </>
   );
