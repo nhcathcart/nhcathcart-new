@@ -20,7 +20,7 @@ export default async function Page() {
         title="Technical Blog"
         description="Musings on tech that is new to me, fun, or interesting in some way."
       />
-      
+
       <Posts posts={data} />
     </>
   );
