@@ -15,7 +15,6 @@ export default async function WorksPage() {
       next: { tags: ['workPost'] }
     }
   );
-  console.log(data);
   return (
     <PageContainer>
       <Header title="Works" description="A smattering of recent work from me." />
