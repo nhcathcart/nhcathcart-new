@@ -1,9 +1,9 @@
 // ./components/Posts.tsx
 
-import { SanityDocument } from "next-sanity";
-import Image from "next/image";
-import { dataset, projectId } from "@/sanity/env";
-import imageUrlBuilder from "@sanity/image-url";
+import { SanityDocument } from 'next-sanity';
+import Image from 'next/image';
+import { dataset, projectId } from '@/sanity/env';
+import imageUrlBuilder from '@sanity/image-url';
 
 const builder = imageUrlBuilder({ projectId, dataset });
 export interface Props {
@@ -15,16 +15,16 @@ export default function WorkPosts({ posts }: Props) {
       {posts.map((post) => (
         <div
           key={post._id}
-          className="relative flex flex-col gap-8 lg:flex-row lg:justify-between py-8 md:py-16 border-b border-text border-opacity-50"
+          className="relative flex flex-col gap-8 border-b border-text border-opacity-50 py-8 md:py-16 lg:flex-row lg:justify-between"
         >
-          <div className="group relative max-w-xl flex-grow flex-col justify-betwen min-h-full">
+          <div className="justify-betwen group relative min-h-full max-w-xl flex-grow flex-col">
             <h3 className="mt-3 text-2xl font-semibold leading-6 text-text">
               <a href={post.url}>
                 <span className="absolute inset-0" />
                 {post.title}
               </a>
             </h3>
-            <div className="mt-5 text-sm leading-6 text-text prose prose-invert line-clamp-5">
+            <div className="prose prose-invert mt-5 line-clamp-5 text-sm leading-6 text-text">
               {post.description}
             </div>
           </div>
@@ -36,7 +36,7 @@ export default function WorkPosts({ posts }: Props) {
                   .width(500)
                   .height(500)
                   .quality(90)
-                  .fit("crop")
+                  .fit('crop')
                   .url()}
                 alt=""
                 fill

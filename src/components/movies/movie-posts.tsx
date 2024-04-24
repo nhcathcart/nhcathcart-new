@@ -1,31 +1,28 @@
 // ./components/Posts.tsx
 
-import { SanityDocument } from "next-sanity";
-import Link from "next/link";
-import Image from "next/image";
-import { dataset, projectId } from "@/sanity/env";
-import imageUrlBuilder from "@sanity/image-url";
-import { PortableText } from "@portabletext/react";
-import CodeBlock from "@/src/components/blog/code-block";
+import { SanityDocument } from 'next-sanity';
+import Link from 'next/link';
+import Image from 'next/image';
+import { dataset, projectId } from '@/sanity/env';
+import imageUrlBuilder from '@sanity/image-url';
+import { PortableText } from '@portabletext/react';
+import CodeBlock from '@/src/components/blog/code-block';
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
 export default function Posts({ posts }: { posts: SanityDocument[] }) {
   return (
-    <div className="mx-auto max-w-screen-xl px-2 pt-4 pb-12 lg:px-8">
+    <div className="mx-auto max-w-screen-xl px-2 pb-12 pt-4 lg:px-8">
       <div className="mx-auto max-w-2xl lg:max-w-4xl">
-        <h2 className="text-4xl font-bold tracking-tight text-text sm:text-5xl">
-          Movies
-        </h2>
+        <h2 className="text-4xl font-bold tracking-tight text-text sm:text-5xl">Movies</h2>
         <p className="mt-2 text-lg leading-8 text-text">
-          Nicky C&apos;s takes on movies. Old and new. Streaming and in
-          theaters.
+          Nicky C&apos;s takes on movies. Old and new. Streaming and in theaters.
         </p>
         <div className="divide-y divide-text border-opacity-10 lg:divide-none">
           {posts.map((post) => (
             <article
               key={post._id}
-              className="relative isolate flex flex-col gap-8 lg:flex-row py-8 md:py-16"
+              className="relative isolate flex flex-col gap-8 py-8 md:py-16 lg:flex-row"
             >
               <div className="relative aspect-square w-full lg:w-64 lg:shrink-0">
                 <a href={`/blog/${post.slug.current}`}>
@@ -35,7 +32,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                       .width(500)
                       .height(500)
                       .quality(90)
-                      .fit("crop")
+                      .fit('crop')
                       .url()}
                     alt=""
                     fill
@@ -51,7 +48,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                       {post.title}
                     </a>
                   </h3>
-                  <div className="flex items-center gap-x-4 text-xs mt-6">
+                  <div className="mt-6 flex items-center gap-x-4 text-xs">
                     <div className="flex gap-2">
                       {post?.categories?.map((item: any) => {
                         return (
@@ -65,7 +62,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                       })}
                     </div>
                   </div>
-                  <div className="mt-5 text-sm leading-6 text-text prose prose-invert line-clamp-5">
+                  <div className="prose prose-invert mt-5 line-clamp-5 text-sm leading-6 text-text">
                     {/* <PortableText value={post.body} /> */}
                     {post.description}
                   </div>
@@ -78,7 +75,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                         .width(100)
                         .height(100)
                         .quality(100)
-                        .fit("crop")
+                        .fit('crop')
                         .url()}
                       alt=""
                       height={40}
@@ -86,23 +83,17 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                       className="h-10 w-10 rounded-full bg-gray-50"
                     />
                     <div className="text-sm leading-6">
-                      <p className="font-semibold flex flex-col">
+                      <p className="flex flex-col font-semibold">
                         <a href={post.author}>
                           <span className="absolute inset-0" />
                           {post.author.name}
                         </a>
-                        <time
-                          dateTime={post._createdAt}
-                          className="text-text text-xs font-thin"
-                        >
-                          {new Date(post._createdAt).toLocaleDateString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                              month: "short",
-                              day: "numeric",
-                            }
-                          )}
+                        <time dateTime={post._createdAt} className="text-xs font-thin text-text">
+                          {new Date(post._createdAt).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                          })}
                         </time>
                       </p>
                     </div>

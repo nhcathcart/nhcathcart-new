@@ -19,7 +19,7 @@ export default function MobileMenu({ linkArray }: Props) {
           type="button"
           className="rounded-md text-white"
           onClick={() => setOpen(true)}
-          aria-label='Open mobile menu'
+          aria-label="Open mobile menu"
         >
           <Bars3Icon className="h-8 w-8" aria-hidden="true" />
         </button>
@@ -52,7 +52,7 @@ export default function MobileMenu({ linkArray }: Props) {
                 <div className="flex px-4 pb-2 pt-5">
                   <button
                     type="button"
-                    className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-primary focus:outline-primary"
+                    className="text-primary focus:outline-primary -m-2 inline-flex items-center justify-center rounded-md p-2"
                     onClick={() => setOpen(false)}
                   >
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -65,7 +65,7 @@ export default function MobileMenu({ linkArray }: Props) {
                     <Link
                       key={`sidebar-link-${link.linkText}`}
                       href={link.href}
-                      className="flex rounded p-3 font-sans text-3xl text-primary"
+                      className="text-primary flex rounded p-3 font-sans text-3xl"
                       onClick={() => setOpen(false)}
                     >
                       {link.linkText}

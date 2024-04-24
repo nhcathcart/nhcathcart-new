@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'workPost',
@@ -8,30 +8,30 @@ export default defineType({
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'string'
     }),
     defineField({
       name: 'description',
-      title : 'Description',
-      type: 'string',
+      title: 'Description',
+      type: 'string'
     }),
     defineField({
       name: 'url',
       description: 'URL to the project',
-      type: 'url',
+      type: 'url'
     }),
     defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
       options: {
-        hotspot: true,
+        hotspot: true
       },
       fields: [
         {
           name: 'alt',
           type: 'string',
-          title: 'Alternative Text',
+          title: 'Alternative Text'
         }
       ]
     }),
@@ -39,29 +39,29 @@ export default defineType({
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      of: [{ type: 'reference', to: { type: 'category' } }]
     }),
     defineField({
       name: 'publishedAt',
       title: 'Published at',
-      type: 'datetime',
+      type: 'datetime'
     }),
     defineField({
       name: 'body',
       title: 'Body',
-      type: 'blockContent',
-    }),
+      type: 'blockContent'
+    })
   ],
 
   preview: {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'mainImage',
+      media: 'mainImage'
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
-    },
-  },
-})
+      const { author } = selection;
+      return { ...selection, subtitle: author && `by ${author}` };
+    }
+  }
+});
