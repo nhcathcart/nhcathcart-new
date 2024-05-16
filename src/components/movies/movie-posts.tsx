@@ -27,7 +27,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                   .url()}
                 alt=""
                 fill
-                className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-scale-down"
+                className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
               />
             </a>
           </div>
@@ -44,7 +44,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                 {post.description}
               </div>
             </div>
-            <div className="mt-1 flex border-t border-text border-opacity-30 pt-6 ">
+            <div className="mt-1 flex lg:border-t border-text border-opacity-30 pt-6 ">
               <div className="relative flex items-center gap-x-4">
                 <Image
                   src={builder
