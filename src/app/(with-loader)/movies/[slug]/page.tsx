@@ -16,5 +16,6 @@ export default async function Page({ params }: { params: QueryParams }) {
     cache: 'force-cache',
     next: { tags: ['moviePost'] }
   });
+  console.log(data)
   return <Post post={data} />;
 }

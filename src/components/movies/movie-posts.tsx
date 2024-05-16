@@ -27,14 +27,14 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                   .url()}
                 alt=""
                 fill
-                className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-scale-down"
+                className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
               />
             </a>
           </div>
           <div className="flex min-h-full flex-col justify-between">
             <div className="group relative max-w-xl">
               <h3 className="mt-3 text-2xl font-semibold leading-6 text-text">
-                <a href={`/blog/${post.slug.current}`}>
+                <a href={`/movies/${post.slug.current}`}>
                   <span className="absolute inset-0" />
                   {post.title}
                 </a>
@@ -44,7 +44,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                 {post.description}
               </div>
             </div>
-            <div className="mt-1 flex border-t border-text border-opacity-30 pt-6">
+            <div className="mt-1 flex lg:border-t border-text border-opacity-30 pt-6 ">
               <div className="relative flex items-center gap-x-4">
                 <Image
                   src={builder
@@ -65,8 +65,8 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                       <span className="absolute inset-0" />
                       {post.author.name}
                     </a>
-                    <time dateTime={post._createdAt} className="text-xs font-thin text-text">
-                      {new Date(post._createdAt).toLocaleDateString('en-US', {
+                    <time dateTime={post.publishedAt} className="text-xs font-thin text-text">
+                      {new Date(post.publishedAt).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'short',
                         day: 'numeric'
