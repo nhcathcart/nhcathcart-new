@@ -14,25 +14,22 @@ export default async function Page() {
             <div className="flex flex-col gap-2 text-lg">
               <p>
                 Checkout the{' '}
-                <Link href={'/blog'} className="text-accent">
+                <Link href={'/blog'} className="text-accent hover:underline">
                   blog
                 </Link>{' '}
                 for technical musings.{' '}
               </p>
               <p>
                 There are thoughts on{' '}
-                <Link href={'/movies'} className="text-accent">
+                <Link href={'/movies'} className="text-accent hover:underline">
                   movies
                 </Link>{' '}
-                ,{' '}
-                <Link href={'/restaurants'} className="text-accent">
-                  food
-                </Link>{' '}
-                , and{' '}
-                <Link href={'/playlists'} className="text-accent">
+                {' '}
+                 and{' '}
+                <Link href={'/playlists'} className="text-accent hover:underline">
                   music
                 </Link>{' '}
-                in the respective sections.{' '}
+                in their respective sections.{' '}
               </p>
               <p>
                 For work stuff head over to{' '}

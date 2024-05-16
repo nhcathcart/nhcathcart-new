@@ -9,7 +9,7 @@ export default async function Page() {
     MOVIE_POSTS_QUERY,
     {},
     {
-      cache: 'force-cache',
+      cache: 'no-cache',
       next: { tags: ['moviePost'] }
     }
   );

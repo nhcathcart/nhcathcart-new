@@ -10,9 +10,8 @@ export interface NavbarLink {
 export default function Navbar() {
   const linkArray: NavbarLink[] = [
     { linkText: 'home', href: '/' },
-    { linkText: 'works', href: '/works' },
     { linkText: 'blog', href: '/blog' },
-    { linkText: 'movies', href: '/movies' },
+    { linkText: 'movies', href: '/movies'},
     { linkText: 'playlists', href: '/playlists' },
     { linkText: 'contact', href: '/contact' }
   ];
