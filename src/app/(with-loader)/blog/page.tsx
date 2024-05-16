@@ -9,7 +9,7 @@ export default async function Page() {
     BLOG_POSTS_QUERY,
     {},
     {
-      cache: 'no-cache',
+      cache: 'force-cache',
       next: { tags: ['blogPost'] }
     }
   );

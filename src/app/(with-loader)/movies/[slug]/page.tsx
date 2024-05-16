@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: { params: QueryParams }) {
   const data = await client.fetch<SanityDocument>(MOVIE_POST_QUERY, params, {
-    cache: 'no-cache',
+    cache: 'force-cache',
     next: { tags: ['moviePost'] }
   });
   console.log(data)
