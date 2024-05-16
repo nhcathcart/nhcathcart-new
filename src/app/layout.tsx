@@ -4,6 +4,7 @@ import { Roboto_Flex } from 'next/font/google';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('http://nhcathcart-new.vercel.app'),
   title: {
     template: '%s | nhcathcart',
     default: 'nhcathcart'
