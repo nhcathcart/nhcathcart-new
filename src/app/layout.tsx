@@ -8,7 +8,16 @@ export const metadata: Metadata = {
     template: '%s | nhcathcart',
     default: 'nhcathcart'
   },
-  description: "Nicholas Cathcart's personal website."
+  description: "Nicholas Cathcart's personal website.",
+  openGraph: {
+    title: "nhcathcart",
+    description:
+      "Nicholas Cathcart. I build stuff for the internet",
+    url: "https://nhcathcart-new.vercel.app",
+    siteName: "nhcathcart-new.vercel.app",
+    locale: "en_US",
+    type: "website",
+  },
 };
 const roboto = Roboto_Flex({
   subsets: ['latin'],

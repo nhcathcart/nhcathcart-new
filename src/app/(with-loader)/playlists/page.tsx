@@ -1,6 +1,10 @@
 import Header from '@/src/components/layout/header';
 import PageContainer from '@/src/components/layout/page-container';
-
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+  title: 'playlists',
+  description: "Nicholas Cathcart's playlists."
+};
 export default function Page() {
   return (
     <PageContainer>
