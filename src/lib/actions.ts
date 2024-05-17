@@ -17,6 +17,6 @@ export async function submitContactForm(data: FormData) {
         },
       })
         .then((res) => res.json())
-        .then((data) => {})
+        .then((data) => console.log("data is : ", data))
         .catch((err) => {});
     }
