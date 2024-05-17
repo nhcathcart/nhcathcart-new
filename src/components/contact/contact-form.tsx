@@ -5,7 +5,7 @@ import { z } from 'zod';
 import SuccessModal from './success-modal';
 import { useEffect, useState } from 'react';
 
-
+const BASE_URL = process.env.NEXT_PUBLIC_URL;
 
 const schema = z.object({
   name: z.string().min(1, { message: 'Name is required' }),
@@ -34,10 +34,10 @@ export default function ContactForm() {
       reset(); // Reset form fields after successful submission
     }
   }, [isSubmitSuccessful, reset]);
-  
+
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_MAIL_URL}/api/email`, {
+      const response = await fetch(`${BASE_URL}/api/email`, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -55,7 +55,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <SuccessModal open={modalOpen} setOpen={setModalOpen}/>
+      <SuccessModal open={modalOpen} setOpen={setModalOpen} />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mt-4 flex w-full flex-col gap-2 rounded border-text md:border md:px-6 md:py-8"
@@ -132,7 +132,7 @@ export default function ContactForm() {
           <textarea
             placeholder="Your message here"
             {...register('message')}
-            className=" mt-2 min-h-[200px] rounded-md border-none bg-text px-2 py-1.5 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className=" text-gray-900 px-2 mt-2 min-h-[200px] rounded-md border-none bg-text py-1.5 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           />
 
           {errors.message && (
@@ -141,7 +141,7 @@ export default function ContactForm() {
             </p>
           )}
         </div>
-        <button className="mt-6 h-12 w-full rounded-xl bg-background-hover text-neutral-50 transition-colors duration-200 hover:bg-accent hover:text-background md:w-[289px]">
+        <button className="mt-6 h-12 w-full rounded-xl bg-background-hover text-text transition-colors duration-200 hover:bg-accent hover:text-background md:w-[289px]">
           Send Message
         </button>
       </form>
