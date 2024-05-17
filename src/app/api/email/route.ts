@@ -4,8 +4,6 @@ import nodemailer from 'nodemailer';
 export async function POST(req: Request, res: Response) {
   try {
     const { name, email, message, phone } = await req.json();
-    console.log('hit post route');
-    console.log(name, email, message, phone);
     const client = await nodemailer.createTransport({
       service: 'Gmail',
       host: 'smtp.gmail.com',
@@ -28,7 +26,7 @@ export async function POST(req: Request, res: Response) {
       <p>My message is ${message}</p>
       <p>The time is ${new Date().toLocaleString()}</p> `,
     });
-    console.log('hit end of post route');
+
     return NextResponse.json({ name, email, message, phone });
   } catch (err) {
     console.log(err);

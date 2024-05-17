@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     if (!body?._type) {
       return new Response('Bad Request', { status: 400 });
     }
-    console.log('body is', body);
+
     revalidateTag(body._type);
     return NextResponse.json({
       status: 200,
