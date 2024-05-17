@@ -38,7 +38,7 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     const result = await submitContactForm(data);
-    if (result.success) {
+    if (result) {
       reset();
     }
   };
