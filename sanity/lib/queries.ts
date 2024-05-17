@@ -24,7 +24,7 @@ export const BLOG_POSTS_QUERY = groq`*[_type == "blogPost" && defined(slug)]{
     _id,
     title
   }
-}`;
+} | order(publishedAt desc)`;
 
 export const WORK_POSTS_QUERY = groq`*[_type == "workPost"]`;
 export const BLOG_POST_QUERY = groq`*[_type == "blogPost" && slug.current == $slug][0]{..., author->{_id, name, image}}`;

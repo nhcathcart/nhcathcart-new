@@ -16,7 +16,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
           className="relative isolate flex flex-col gap-8 border-b border-text border-opacity-50 py-8 md:py-16 lg:flex-row"
         >
           <div className="relative aspect-square w-full lg:w-64 lg:shrink-0">
-            <a href={`/blog/${post.slug.current}`}>
+            <a href={`/movies/${post.slug.current}`}>
               <Image
                 src={builder
                   .image(post.mainImage)

@@ -65,8 +65,8 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                       <span className="absolute inset-0" />
                       {post.author.name}
                     </a>
-                    <time dateTime={post._createdAt} className="text-xs font-thin text-text">
-                      {new Date(post._createdAt).toLocaleDateString('en-US', {
+                    <time dateTime={post.publishedAt} className="text-xs font-thin text-text">
+                      {new Date(post.publishedAt).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'short',
                         day: 'numeric'
