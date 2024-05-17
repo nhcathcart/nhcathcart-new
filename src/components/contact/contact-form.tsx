@@ -5,7 +5,7 @@ import { z } from 'zod';
 import SuccessModal from './success-modal';
 import { useEffect, useState } from 'react';
 
-const BASE_URL = process.env.NEXT_PUBLIC_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
 
 const schema = z.object({
   name: z.string().min(1, { message: 'Name is required' }),
