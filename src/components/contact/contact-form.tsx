@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import SuccessModal from './success-modal';
 import { useEffect, useState } from 'react';
+import { submitContactForm } from '@/src/lib/actions';
 
 const BASE_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
 
@@ -14,7 +15,7 @@ const schema = z.object({
   message: z.string().min(1, { message: 'A message is required' })
 });
 
-type FormData = z.infer<typeof schema>;
+export type FormData = z.infer<typeof schema>;
 
 export default function ContactForm() {
   const {
@@ -36,22 +37,9 @@ export default function ContactForm() {
   }, [isSubmitSuccessful, reset]);
 
   const onSubmit = async (data: FormData) => {
-    try {
-        console.log("BASE_URL", BASE_URL)
-      const response = await fetch(`https://${BASE_URL}/api/email`, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      const result = await response.json();
-      console.log("result", result)
-      if (result.success) {
-        reset();
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    const result = await submitContactForm(data);
+    if (result.success) {
+      reset();
     }
   };
 
@@ -134,7 +122,7 @@ export default function ContactForm() {
           <textarea
             placeholder="Your message here"
             {...register('message')}
-            className=" text-gray-900 px-2 mt-2 min-h-[200px] rounded-md border-none bg-text py-1.5 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className=" mt-2 min-h-[200px] rounded-md border-none bg-text px-2 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           />
 
           {errors.message && (
