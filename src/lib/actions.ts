@@ -12,6 +12,7 @@ export async function submitContactForm(data: FormData) {
       }
     });
     const result = await response.json();
+    console.log('result', result)
     return result;
   } catch (error) {
     console.error('Error submitting form:', error);
