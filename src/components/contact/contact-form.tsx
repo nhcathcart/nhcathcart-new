@@ -43,7 +43,6 @@ export default function ContactForm() {
         }
       });
       const result = await response.json();
-      console.log('result', result);
       if (result.success) {
         reset();
       }
