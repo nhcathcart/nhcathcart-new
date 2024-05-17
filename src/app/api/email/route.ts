@@ -41,17 +41,17 @@ export async function POST(req: Request, res: Response) {
           }
       });
   });
-    // await client.sendMail({
-    //   from: 'nhcathcart@gmail.com<nhcathcart@gmail.com>',
-    //   to: 'nhcathcart@gmail.com',
-    //   subject: 'Interest email',
-    //   html: `
-    //   <p>Hi, I'm ${name}</p>
-    //   <p>My email is ${email}</p>
-    //   <p>My phone number is ${phone}</p>
-    //   <p>My message is ${message}</p>
-    //   <p>The time is ${new Date().toLocaleString()}</p> `,
-    // });
+    await client.sendMail({
+      from: 'nhcathcart@gmail.com<nhcathcart@gmail.com>',
+      to: 'nhcathcart@gmail.com',
+      subject: 'Interest email',
+      html: `
+      <p>Hi, I'm ${name}</p>
+      <p>My email is ${email}</p>
+      <p>My phone number is ${phone}</p>
+      <p>My message is ${message}</p>
+      <p>The time is ${new Date().toLocaleString()}</p> `,
+    });
 
     return NextResponse.json({ name, email, message, phone });
   } catch (err) {

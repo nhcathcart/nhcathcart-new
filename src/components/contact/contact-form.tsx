@@ -38,7 +38,7 @@ export default function ContactForm() {
   const onSubmit = async (data: FormData) => {
     try {
         console.log("BASE_URL", BASE_URL)
-      const response = await fetch(`${BASE_URL}/api/email`, {
+      const response = await fetch(`https://${BASE_URL}/api/email`, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
