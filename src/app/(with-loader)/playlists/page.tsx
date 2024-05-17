@@ -24,7 +24,25 @@ export default function Page() {
         ></iframe>
         <iframe
           style={{ borderRadius: '12px' }}
-          src="https://open.spotify.com/embed/playlist/0igWaAh3nxS3nXW1hLNHxW?utm_source=generator"
+          src="https://open.spotify.com/embed/playlist/6erAt7X5Do2rXD3fF1S4G9?utm_source=generator"
+          width="100%"
+          height="352"
+          allowFullScreen={true}
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+        <iframe
+          style={{ borderRadius: '12px' }}
+          src="https://open.spotify.com/embed/playlist/28QWTTUAS5tKYUl0y272nI?utm_source=generator"
+          width="100%"
+          height="352"
+          allowFullScreen={true}
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+        <iframe
+          style={{ borderRadius: '12px' }}
+          src="https://open.spotify.com/embed/playlist/1Drmi4SaSITzn9eezCxbI5?utm_source=generator"
           width="100%"
           height="352"
           allowFullScreen={true}

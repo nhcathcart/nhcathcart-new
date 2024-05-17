@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import imageUrlBuilder from '@sanity/image-url';
 import { SanityDocument } from 'next-sanity';
-
 import { dataset, projectId } from '@/sanity/env';
 import CodeBlock from './code-block';
 

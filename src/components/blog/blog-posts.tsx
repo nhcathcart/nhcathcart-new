@@ -10,10 +10,10 @@ const builder = imageUrlBuilder({ projectId, dataset });
 export default function Posts({ posts }: { posts: SanityDocument[] }) {
   return (
     <div className="flex flex-col">
-      {posts.map((post) => (
+      {posts.map((post, index) => (
         <article
           key={post._id}
-          className="relative isolate flex flex-col gap-8 border-b border-text border-opacity-50 py-8 md:py-16 lg:flex-row"
+          className={`relative isolate flex flex-col gap-8 ${index === posts.length - 1 ? '' : 'border-b'} border-text border-opacity-50 py-8 md:py-16 lg:flex-row`}
         >
           <div className="relative aspect-square w-full lg:w-64 lg:shrink-0">
             <a href={`/blog/${post.slug.current}`}>
@@ -44,7 +44,7 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
                 {post.description}
               </div>
             </div>
-            <div className="mt-1 flex lg:border-t border-text border-opacity-30 pt-6">
+            <div className="mt-1 flex border-text border-opacity-30 pt-6 lg:border-t">
               <div className="relative flex items-center gap-x-4">
                 <Image
                   src={builder
