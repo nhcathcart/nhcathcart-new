@@ -5,7 +5,7 @@ import { z } from 'zod';
 import SuccessModal from './success-modal';
 import { useEffect, useState } from 'react';
 
-const BASE_URL = process.env.NEXT_PUBLIC_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_MAIL_URL;
 
 const schema = z.object({
   name: z.string().min(1, { message: 'Name is required' }),
@@ -37,6 +37,7 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     try {
+        console.log("BASE_URL", BASE_URL)
       const response = await fetch(`${BASE_URL}/api/email`, {
         method: 'POST',
         body: JSON.stringify(data),
@@ -45,6 +46,7 @@ export default function ContactForm() {
         }
       });
       const result = await response.json();
+      console.log("result", result)
       if (result.success) {
         reset();
       }
